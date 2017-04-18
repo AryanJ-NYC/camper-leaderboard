@@ -43,10 +43,10 @@ class Leaderboard extends Component {
 
     // always sort in descending order if new list; toggle if same list
     const desc = (campers !== this.state.campers) ? true : !this.state.desc;
-    if (!desc) {
-      campers.sort((a, b) => a[camperType] - b[camperType]);
-    } else {
+    if (desc) {
       campers.sort((a, b) => b[camperType] - a[camperType]);
+    } else {
+      campers.sort((a, b) => a[camperType] - b[camperType]);
     }
 
     this.setState({
@@ -67,6 +67,18 @@ class Leaderboard extends Component {
       border: '1px white solid'
     };
 
+    const sortIconStyle = {
+      paddingLeft: '2%'
+    };
+    let sortIcon = '';
+    if (typeof this.state.desc !== 'undefined') {
+      if (this.state.desc) {
+        sortIcon = <i style={sortIconStyle} className="fa fa-sort-numeric-desc" aria-hidden="true"></i>;
+      } else {
+        sortIcon = <i style={sortIconStyle} className="fa fa-sort-numeric-asc" aria-hidden="true"></i>;
+      }
+    }
+
     return (
       <div className="container">
         <h1 className="text-center">freeCodeCamp Leaderboard</h1>
@@ -79,11 +91,13 @@ class Leaderboard extends Component {
                 <a href="#" onClick={() => this.toggleSort('recent')} style={linkStyle}>
                   Points in past 30 days
                 </a>
+                {(this.state.campers === this.topRecentCampers) ? sortIcon : ''}
               </th>
               <th style={borderStyle} className="text-center">
                 <a href="#" onClick={() => this.toggleSort('alltime')} style={linkStyle}>
                   All time points
                 </a>
+                {(this.state.campers === this.topAllTimeCampers) ? sortIcon : ''}
               </th>
             </tr>
           </thead>
