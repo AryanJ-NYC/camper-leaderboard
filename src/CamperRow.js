@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { linkStyle } from './styles';
 
 class CamperRow extends Component {
   render() {
@@ -12,11 +13,6 @@ class CamperRow extends Component {
       display: 'inline-block'
     };
 
-    const usernameStyle = {
-      color: 'white',
-      textDecoration: 'underline'
-    };
-
     const username = this.props.username;
     const userProfileUrl = `https://www.freecodecamp.com/${username}`;
 
@@ -24,8 +20,8 @@ class CamperRow extends Component {
       <tr style={tableStyle}>
         <td style={tableStyle} className="text-center">{this.props.rank+1}</td>
         <td style={tableStyle}>
-          <a style={usernameStyle} href={userProfileUrl} target="_blank">
-            <img className="img-responsive" src={this.props.img} style={avatarStyle} />
+          <a style={linkStyle} href={userProfileUrl} target="_blank">
+            <img className="img-responsive" src={this.props.img} style={avatarStyle} alt="user-avatar" />
             <span style={{paddingLeft: '5px'}}>{username}</span>
           </a>
         </td>
