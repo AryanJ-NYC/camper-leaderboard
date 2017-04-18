@@ -58,9 +58,7 @@ class Leaderboard extends Component {
   render() {
     const tableStyle = {
       backgroundColor: 'darkgreen',
-      color: 'white',
-      width: '50%',
-      margin: 'auto'
+      color: 'white'
     };
 
     const borderStyle = {
@@ -82,7 +80,7 @@ class Leaderboard extends Component {
     return (
       <div className="container">
         <h1 className="text-center">freeCodeCamp Leaderboard</h1>
-        <table style={Object.assign(tableStyle, borderStyle)}>
+        <table style={Object.assign(tableStyle, borderStyle)} className="col-md-offset-3 col-md-6">
           <thead>
             <tr>
               <th style={borderStyle} className="text-center">Rank</th>
