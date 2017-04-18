@@ -20,20 +20,23 @@ class Leaderboard extends Component {
       backgroundColor: 'darkgreen',
       color: 'white',
       width: '50%',
-      margin: 'auto',
+      margin: 'auto'
+    };
+
+    const borderStyle = {
       border: '1px white solid'
     };
 
     return (
       <div className="container">
         <h1 className="text-center">freeCodeCamp Leaderboard</h1>
-        <table style={tableStyle}>
+        <table style={Object.assign(tableStyle, borderStyle)}>
           <thead>
             <tr>
-              <th className="text-center">Rank</th>
-              <th className="text-center">Camper Name</th>
-              <th className="text-center">Points in past 30 days</th>
-              <th className="text-center">All time points</th>
+              <th style={borderStyle} className="text-center">Rank</th>
+              <th style={borderStyle} className="text-center">Camper Name</th>
+              <th style={borderStyle} className="text-center">Points in past 30 days</th>
+              <th style={borderStyle} className="text-center">All time points</th>
             </tr>
           </thead>
           <tbody>
