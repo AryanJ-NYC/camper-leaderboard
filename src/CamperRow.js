@@ -6,6 +6,12 @@ class CamperRow extends Component {
       border: '1px white solid'
     };
 
+    const avatarStyle = {
+      height: '100px',
+      width: '100px',
+      display: 'inline-block'
+    };
+
     const usernameStyle = {
       color: 'white',
       textDecoration: 'underline'
@@ -16,12 +22,15 @@ class CamperRow extends Component {
 
     return (
       <tr style={tableStyle}>
-        <td style={tableStyle}>{this.props.rank+1}</td>
+        <td style={tableStyle} className="text-center">{this.props.rank+1}</td>
         <td style={tableStyle}>
-          <a style={usernameStyle} href={userProfileUrl} target="_blank">{username}</a>
+          <a style={usernameStyle} href={userProfileUrl} target="_blank">
+            <img className="img-responsive" src={this.props.img} style={avatarStyle} />
+            <span style={{paddingLeft: '5px'}}>{username}</span>
+          </a>
         </td>
-        <td style={tableStyle}>{this.props.recent}</td>
-        <td style={tableStyle}>{this.props.alltime}</td>
+        <td style={tableStyle} className="text-center">{this.props.recent}</td>
+        <td style={tableStyle} className="text-center">{this.props.alltime}</td>
       </tr>
     );
   }

@@ -30,16 +30,24 @@ class Leaderboard extends Component {
         <table style={tableStyle}>
           <thead>
             <tr>
-              <th></th>
-              <th>Camper Name</th>
-              <th>Points in past 30 days</th>
-              <th>All time points</th>
+              <th className="text-center">Rank</th>
+              <th className="text-center">Camper Name</th>
+              <th className="text-center">Points in past 30 days</th>
+              <th className="text-center">All time points</th>
             </tr>
           </thead>
           <tbody>
             {this.state.campers.map((camper, rank) => {
-              const { username, recent, alltime } = camper;
-              return <CamperRow key={rank.toString()} rank={rank} username={username} recent={recent} alltime={alltime} />;
+              const { username, img, recent, alltime } = camper;
+              return (
+                <CamperRow
+                  key={rank.toString()}
+                  rank={rank}
+                  username={username}
+                  img={img}
+                  recent={recent}
+                  alltime={alltime} />
+              );
             })}
           </tbody>
         </table>
